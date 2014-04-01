@@ -1,0 +1,56 @@
+# the example of my current aliases:
+
+alias show_alias='grep ^alias ~/.bashrc'
+
+# Caff 
+alias caff="caff -m yes"
+
+# Zypper
+alias zypperu='sudo /usr/bin/zypper up'
+
+# zypper up patch only
+alias zypperpup='sudo /usr/bin/zypper up -t patch'
+
+# zypper up all packager
+alias zypperu='sudo /usr/bin/zypper up'
+
+# OSC build
+alias osco_build-12.3='osco build openSUSE_12.3 x86_64 --icecream=3 -j4'
+alias osco_build-13.1='osco build openSUSE_13.1 x86_64 --icecream=3 -j4'
+alias osci_build='osci build SLE_11_SP3 x86_64 --icecream=3 -j4'
+alias osci_build_factory='osci build SLE_12 x86_64 --icecream=3 -j4'
+alias osco='osc -A https://api.opensuse.org'
+alias osci='osc -A https://api.suse.de'
+
+# Others:
+# Pack tips & tricks:
+alias diff=colordiff # you need colordiff package !
+alias dmesg='perl ~/bin/hdmesg' # you need my hdmesg
+
+alias NM='sudo less /var/log/NetworkManager'
+alias more='less'
+alias up='cd ..'
+alias l='ls -l'
+alias wgetsite='wget -m -p -E -k -K -np'
+alias traceroute='sudo usr/sbin/traceroute'
+alias mtr='sudo /usr/sbin/mtr'
+alias mount='mount | column -t'
+
+# PGP shorcats:
+alias gpg_recvkey='gpg --recv-keys --keyserver pgp.mit.edu'
+alias gpg_sign='gpg --sign-key'
+alias gpg_list='gpg --list-sigs'
+alias gpg_sendkey='gpg --send-keys --keyserver pgp.mit.edu'
+
+# archives shorts:
+alias tarit='tar -cvf'
+alias bz2it='tar -cvjf'
+alias untarit='tar -xvf'
+alias unbz2it='tar -xjvf'
+alias viewtar='tar tf'
+
+# Openvpn
+alias vpnsuse-start='sudo /usr/bin/systemctl start openvpn@SUSE;sleep 5; systemctl status openvpn@SUSE -l;ip a sh|grep tun[0-9]'
+alias vpnsuse-stop='sudo /usr/bin/systemctl stop openvpn@SUSE; systemctl status openvpn@SUSE -l'
+alias vpnsuse-status='sudo /usr/bin/systemctl status openvpn@SUSE -l'
+
