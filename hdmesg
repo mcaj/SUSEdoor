@@ -1,0 +1,24 @@
+#!/usr/bin/perl 
+
+#
+# this script parse the dmesg and make it more human readble.
+# the best place to store it is probably ~/bin for your $USER
+#
+# version 0.1
+# Martin Caj <mcaj@suse.cz> 
+#
+
+use strict;
+use warnings;
+my @DMESG;
+my $line;
+
+system("/bin/dmesg &>/dev/null") == 0 ? @DMESG = `/bin/dmesg`
+:  die "\n\nERROR: Cannot get system's dmesg\n\n";
+
+foreach $line (@DMESG) {
+    my ($uptime) = (do { local @ARGV='/proc/uptime';<>} =~ /^(\d+)\./);
+    $line=~/^\[\s*(\d+)\.\d+\](.+)/;
+    printf "[%s]%s\n", scalar localtime(time - $uptime + $1), $2;
+}
+

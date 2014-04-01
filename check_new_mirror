@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -z $1 ]; then                                                                                                           
+       echo "Plase add hostname address without the prefix http or ftp or rsync. " 
+       exit 1                                                                                                                
+fi  
+
+
+address=$1
+echo "checking HTTP:"
+ wget http://$address
+echo "checking FTP:"
+echo "The  redirection to HTTP is not allow any more !"
+curl ftp://$address
+echo "checking Rsync:"
+rsync --list-only rsync://$address/distribution/
+
